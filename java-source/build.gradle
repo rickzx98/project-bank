@@ -123,7 +123,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
     }
     node {
-        name "O=PartyA,L=London,C=GB"
+        name "O=London,L=London,C=GB"
         p2pPort 10007
         rpcSettings {
             address("$System.env.CORDA_LONDON_IP:10008")
@@ -134,7 +134,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
     node {
-        name "O=PartyB,L=New York,C=US"
+        name "O=NewYork,L=New York,C=US"
         p2pPort 10010
         rpcSettings {
             address("$System.env.CORDA_NEW_YORK_IP:10011")
@@ -145,7 +145,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
     node {
-        name "O=PartyC,L=Paris,C=FR"
+        name "O=Paris,L=Paris,C=FR"
         p2pPort 10013
         rpcSettings {
             address("$System.env.CORDA_PARIS_IP:10014")
