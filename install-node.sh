@@ -7,7 +7,7 @@ export CORDA_PARIS_IP=18.237.35.221;
 cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd;
-cp  -i -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/*;
+sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 echo "Setting up $CORDA_NODE";
 echo "
     [Unit]
