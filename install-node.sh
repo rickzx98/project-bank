@@ -4,6 +4,7 @@ cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd;
 cp  -i -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/*;
+echo "Setting up $CORDA_HOME";
 echo "
     [Unit]
     Description=Corda Node - $CORD_NODE
