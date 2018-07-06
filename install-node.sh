@@ -2,7 +2,7 @@
 cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd
-cp  -i -R -y ./java-source/build/node/$CORDA_NODE/* $cordaHome/
+cp  -i -R ./java-source/build/node/$CORDA_NODE/* $cordaHome/
 
 echo `
     [Unit]
