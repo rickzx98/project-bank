@@ -31,7 +31,7 @@ echo `
 
 
 
-if [$CORDA_NODE != 'Notary']
+if [$CORDA_NODE != Notary]
 then
     echo `
         description "Webserver for Corda Node - $CORDA_NODE"
@@ -43,5 +43,5 @@ then
         setuid corda
         chdir $cordaHome
         exec java -jar $cordaHome/corda-webserver.jar
-    `
+    ` > /etc/init/corda-webserver.conf
 fi 
