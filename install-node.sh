@@ -2,7 +2,7 @@
 cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd;
-cp  -i -R ./java-source/build/node/$CORDA_NODE/* $cordaHome/*;
+cp  -i -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/*;
 echo `
     [Unit]
     Description=Corda Node - $CORD_NODE
@@ -16,7 +16,7 @@ echo `
     Restart=on-failure
 
     [Install]
-    WantedBy=multi-user.target` >  /etc/systemd/system/corda.service;
+    WantedBy=multi-user.target` > /etc/systemd/system/corda.service;
 echo `
     description "Corda Node - $CORDA_NODE"
 
