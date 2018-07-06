@@ -1,7 +1,7 @@
-mkdir /opt/Corda
-
+cordaHome = /opt/corda
+mkdir $cordaHome;
 sh gradlew deployNodesProd
-cp  -i -R -y ./java-source/build/node/$CORDA_NODE/*  /opt/corda/*
+cp  -i -R -y ./java-source/build/node/$CORDA_NODE/* $cordaHome/
 
 echo `
     [Unit]
@@ -11,8 +11,8 @@ echo `
     [Service]
     Type=simple
     User=corda
-    WorkingDirectory=/opt/corda
-    ExecStart=/usr/bin/java -Xmx2048m -jar /opt/corda/corda.jar
+    WorkingDirectory=$cordaHome
+    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
     Restart=on-failure
 
     [Install]
@@ -25,8 +25,8 @@ echo `
 
     respawn
     setuid corda
-    chdir /opt/corda
-    exec java -Xmx2048m -jar /opt/corda/corda.jar` >  /etc/init/corda.conf
+    chdir $cordaHome
+    exec java -Xmx2048m -jar $cordaHome/corda.jar` >  /etc/init/corda.conf
 
 
 
@@ -40,7 +40,7 @@ then
 
         respawn
         setuid corda
-        chdir /opt/corda
-        exec java -jar /opt/corda/corda-webserver.jar
+        chdir $cordaHome
+        exec java -jar $cordaHome/corda-webserver.jar
     `
 fi 
