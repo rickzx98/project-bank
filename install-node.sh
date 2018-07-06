@@ -31,7 +31,7 @@ echo "
 if [$CORDA_NODE != "Notary"]
 then
     echo "
-        description "Webserver for Corda Node - $CORDA_NODE"
+        description \"Webserver for Corda Node - $CORDA_NODE\"
 
         start on runlevel [2345]
         stop on runlevel [!2345]
