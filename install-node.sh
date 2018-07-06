@@ -1,4 +1,5 @@
 #!/bin/bash
+sh export-env.sh
 cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd;
