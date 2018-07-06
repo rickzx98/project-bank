@@ -1,4 +1,5 @@
-cordaHome = /opt/corda
+#!/bin/bash
+cordaHome=/opt/corda
 mkdir $cordaHome;
 sh gradlew deployNodesProd
 cp  -i -R -y ./java-source/build/node/$CORDA_NODE/* $cordaHome/
