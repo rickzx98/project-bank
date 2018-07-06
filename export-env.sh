@@ -1,3 +1,4 @@
+#!/bin/bash
 export CORDA_NODE=Notary;
 export CORDA_NOTARY_IP=54.190.42.1;
 export CORDA_LONDON_IP=18.237.44.123;
