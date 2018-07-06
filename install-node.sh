@@ -3,7 +3,7 @@ cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd;
 cp  -i -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/*;
-echo `
+echo "
     [Unit]
     Description=Corda Node - $CORD_NODE
     Requires=network.target
@@ -16,8 +16,8 @@ echo `
     Restart=on-failure
 
     [Install]
-    WantedBy=multi-user.target` > /etc/systemd/system/corda.service;
-echo `
+    WantedBy=multi-user.target" >> /etc/systemd/system/corda.service;
+echo "
     description "Corda Node - $CORDA_NODE"
 
     start on runlevel [2345]
@@ -26,10 +26,10 @@ echo `
     respawn
     setuid corda
     chdir $cordaHome
-    exec java -Xmx2048m -jar $cordaHome/corda.jar` >  /etc/init/corda.conf;
+    exec java -Xmx2048m -jar $cordaHome/corda.jar" >>  /etc/init/corda.conf;
 if [$CORDA_NODE != Notary]
 then
-    echo `
+    echo "
         description "Webserver for Corda Node - $CORDA_NODE"
 
         start on runlevel [2345]
@@ -39,5 +39,5 @@ then
         setuid corda
         chdir $cordaHome
         exec java -jar $cordaHome/corda-webserver.jar
-    ` > /etc/init/corda-webserver.conf;
+    " >> /etc/init/corda-webserver.conf;
 fi 
