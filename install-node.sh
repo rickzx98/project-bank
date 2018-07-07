@@ -56,15 +56,8 @@ echo "
     setuid corda
     chdir $cordaHome
     exec java -Xmx2048m -jar $cordaHome/corda.jar" >> /etc/init/corda.conf;
-
-if [ $CORDA_NODE != "Notary" ] ;
-then 
-install_webserver()
-fi 
-
-function install_webserver() {
-    sudo rm /etc/init/corda-webserver.conf;
-    echo "
+sudo rm /etc/init/corda-webserver.conf;
+echo "
         description \"Webserver for Corda Node - $CORDA_NODE\"
 
         start on runlevel [2345]
@@ -75,4 +68,4 @@ function install_webserver() {
         chdir $cordaHome
         exec java -jar $cordaHome/corda-webserver.jar
     " >> /etc/init/corda-webserver.conf; 
-}
+
