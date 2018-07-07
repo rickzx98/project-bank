@@ -11,7 +11,7 @@ mkdir $cordaHome;
 sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 sudo rm /etc/systemd/system/corda.service;
-sudo rm /etc/init/corda.conf;
+sudo rm /etc/systemd/system/corda-webserver.service;
 sudo echo "
     [Unit]
     Description=Corda Node - $CORD_NODE
@@ -30,7 +30,7 @@ sudo chown ubuntu:root /etc/systemd/system/corda.service;
 sudo chmod 644 /etc/systemd/system/corda.service;
 sudo echo "
     [Unit]
-    Description=Webserver for Corda Node - Bank of Breakfast Tea
+    Description=Webserver for Corda Node - $CORDA_NODE
     Requires=network.target
 
     [Service]
