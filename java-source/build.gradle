@@ -116,8 +116,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=Notary,L=London,C=GB"
         notary = [validating : false]
         rpcSettings {
-            address("54.190.42.1:10008")
-            adminAddress("54.190.42.1:10048")
+            address("localhost:10008")
+            adminAddress("localhost:10048")
         }
         p2pPort 10006
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
@@ -126,8 +126,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=London,L=London,C=GB"
         p2pPort 10007
         rpcSettings {
-            address("localhost:10008")
-            adminAddress("localhost:10048")
+            address("18.237.44.123:10008")
+            adminAddress("18.237.44.123:10048")
         }
         webPort 10009
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
