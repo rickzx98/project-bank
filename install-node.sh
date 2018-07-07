@@ -48,9 +48,10 @@ echo "
     setuid corda
     chdir $cordaHome
     exec java -Xmx2048m -jar $cordaHome/corda.jar" >> /etc/init/corda.conf;
+    
 if [ $CORDA_NODE != "Notary" ];
-then
-    sudo rm /etc/init/corda-webserver.conf;
+then 
+   sudo rm /etc/init/corda-webserver.conf;
     echo "
         description \"Webserver for Corda Node - $CORDA_NODE\"
 
