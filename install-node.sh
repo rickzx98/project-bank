@@ -8,8 +8,8 @@ cordaHome=/opt/corda;
 mkdir $cordaHome;
 sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
-sudo rm /etc/systemd/system/corda.service
-sudo rm /etc/init/corda.conf
+sudo rm /etc/systemd/system/corda.service;
+sudo rm /etc/init/corda.conf;
 echo "Setting up $CORDA_NODE";
 echo "
     [Unit]
