@@ -67,5 +67,4 @@ echo "
         setuid corda
         chdir $cordaHome
         exec java -jar $cordaHome/corda-webserver.jar
-    " >> /etc/init/corda-webserver.conf; 
-
+    " >> /etc/init/corda-webserver.conf;
