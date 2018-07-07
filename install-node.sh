@@ -11,7 +11,7 @@ export CORDA_LONDON_IP=localhost
 elif [ $CORDA_NODE = "NewYork" ]; then
 export CORDA_NEW_YORK_IP=localhost
 elif [ $CORDA_NODE = "Paris" ]; then
-export CORDA_PARIS_IP=localhost
+export CORDA_PARIS_IP=localhost;
 fi
 cordaHome=/opt/corda;
 mkdir $cordaHome;
