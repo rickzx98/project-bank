@@ -13,7 +13,7 @@ sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
 sudo echo "
     [Unit]
-    Description=Corda Node - $CORD_NODE
+    Description=Corda Node - $CORDA_NODE
     Requires=network.target
 
     [Service]
