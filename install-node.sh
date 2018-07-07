@@ -5,16 +5,16 @@ export CORDA_LONDON_IP=18.237.44.123;
 export CORDA_NEW_YORK_IP=34.217.122.211;
 export CORDA_PARIS_IP=18.237.35.221;
 
-if [ CORDA_NODE == "Notary" ];
+if [ CORDA_NODE == "Notary" ] ;
 then CORDA_NOTARY_IP=localhost fi
 
-if [ CORDA_NODE == "London" ];
+if [ CORDA_NODE == "London" ] ;
 then CORDA_LONDON_IP=localhost fi
 
-if [ CORDA_NODE == "NewYork" ];
+if [ CORDA_NODE == "NewYork" ] ;
 then CORDA_NEW_YORK_IP=localhost fi
 
-if [ CORDA_NODE == "Paris" ];
+if [ CORDA_NODE == "Paris" ] ;
 then CORDA_PARIS_IP=localhost fi
 
 cordaHome=/opt/corda;
@@ -49,7 +49,7 @@ echo "
     chdir $cordaHome
     exec java -Xmx2048m -jar $cordaHome/corda.jar" >> /etc/init/corda.conf;
 
-if [ $CORDA_NODE != "Notary" ];
+if [ $CORDA_NODE != "Notary" ] ;
 then 
   install_webserver()
 fi 
