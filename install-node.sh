@@ -18,7 +18,7 @@ sudo echo "
 
     [Service]
     Type=simple
-    User=corda
+    User=ubuntu
     WorkingDirectory=$cordaHome
     ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
     Restart=on-failure
@@ -34,7 +34,7 @@ sudo echo "
 
     [Service]
     Type=simple
-    User=corda
+    User=ubuntu
     WorkingDirectory=/opt/corda
     ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
     Restart=on-failure
