@@ -6,16 +6,24 @@ export CORDA_NEW_YORK_IP=34.217.122.211;
 export CORDA_PARIS_IP=18.237.35.221;
 
 if [ CORDA_NODE == "Notary" ] ;
-then CORDA_NOTARY_IP=localhost fi
+then
+export CORDA_NOTARY_IP=localhost
+fi
 
 if [ CORDA_NODE == "London" ] ;
-then CORDA_LONDON_IP=localhost fi
+then
+export CORDA_LONDON_IP=localhost
+fi
 
 if [ CORDA_NODE == "NewYork" ] ;
-then CORDA_NEW_YORK_IP=localhost fi
+then
+export CORDA_NEW_YORK_IP=localhost
+fi
 
 if [ CORDA_NODE == "Paris" ] ;
-then CORDA_PARIS_IP=localhost fi
+then
+export CORDA_PARIS_IP=localhost
+fi
 
 cordaHome=/opt/corda;
 mkdir $cordaHome;
@@ -39,7 +47,7 @@ echo "
     [Install]
     WantedBy=multi-user.target" >> /etc/systemd/system/corda.service;
 echo "
-    description "Corda Node - $CORDA_NODE"
+    description \"Corda Node - $CORDA_NODE\"
 
     start on runlevel [2345]
     stop on runlevel [!2345]
@@ -51,7 +59,7 @@ echo "
 
 if [ $CORDA_NODE != "Notary" ] ;
 then 
-  install_webserver()
+install_webserver()
 fi 
 
 function install_webserver() {
