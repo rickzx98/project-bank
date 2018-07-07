@@ -51,7 +51,7 @@ echo "
 
 if [ $CORDA_NODE != "Notary" ];
 then 
-  install_webserver();
+  install_webserver()
 fi 
 
 function install_webserver() {
