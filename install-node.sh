@@ -5,7 +5,7 @@ export CORDA_NEW_YORK_IP=34.217.122.211;
 export CORDA_PARIS_IP=18.237.35.221;
 
 if [ $CORDA_NODE = "Notary" ]; then
-export CORDA_NOTARY_IP=localhost
+export CORDA_NOTARY_IP=localhost;
 elif [ $CORDA_NODE = "London" ]; then
 export CORDA_LONDON_IP=localhost
 elif [ $CORDA_NODE = "NewYork" ]; then
