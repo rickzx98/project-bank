@@ -116,8 +116,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=Notary,L=London,C=GB"
         notary = [validating : false]
         rpcSettings {
-            address("$System.env.CORDA_NOTARY_IP:10008")
-            adminAddress("$System.env.CORDA_NOTARY_IP:10048")
+            address("54.190.42.1:10008")
+            adminAddress("54.190.42.1:10048")
         }
         p2pPort 10006
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
@@ -126,8 +126,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=London,L=London,C=GB"
         p2pPort 10007
         rpcSettings {
-            address("$System.env.CORDA_LONDON_IP:10008")
-            adminAddress("$System.env.CORDA_LONDON_IP:10048")
+            address("localhost:10008")
+            adminAddress("localhost:10048")
         }
         webPort 10009
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
@@ -137,8 +137,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=NewYork,L=New York,C=US"
         p2pPort 10010
         rpcSettings {
-            address("$System.env.CORDA_NEW_YORK_IP:10011")
-            adminAddress("$System.env.CORDA_NEW_YORK_IP:10051")
+            address("34.217.122.211:10011")
+            adminAddress("34.217.122.211:10051")
         }
         webPort 10012
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
@@ -148,8 +148,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=Paris,L=Paris,C=FR"
         p2pPort 10013
         rpcSettings {
-            address("$System.env.CORDA_PARIS_IP:10014")
-            adminAddress("$System.env.CORDA_PARIS_IP:10054")
+            address("18.237.35.221:10014")
+            adminAddress("18.237.35.221:10054")
         }
         webPort 10015
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
