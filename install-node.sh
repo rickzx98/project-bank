@@ -21,6 +21,7 @@ sudo echo "
 
     [Service]
     Type=simple
+    Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
     ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
@@ -36,7 +37,8 @@ sudo echo "
     Requires=network.target
 
     [Service]
-    Type=simple
+    Type=simple 
+    Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
     ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
