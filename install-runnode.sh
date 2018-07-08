@@ -21,7 +21,31 @@ sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/$CORDA_NODE/;
 sudo chmod -R 777 $cordaHome;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
+sudo rm $cordaHome/nodes/$CORDA_NODE/node.conf;
 sudo ufw allow 10004
+sudo echo "
+basedir : \"$cordaHome\"
+p2pAddress : \"0.0.0.0:10000\"
+webAddress : \"0.0.0.0:10004\"
+h2port : 11000
+emailAddress : \"jerico.g.de.guzman@accenture.com\"
+myLegalName : \"O=$1,L=$2,C=$3\"
+devMode : false
+rpcSettings {
+    address=\"0.0.0.0:10002\"
+    adminAddress=\"0.0.0.0:10003\"
+    standAloneBroker=false
+    useSsl=false
+}
+rpcUsers=[
+    {
+        user=user1  
+        password=test
+        permissions=[
+            ALL
+        ]
+    }
+]" >> $cordaHome/nodes/$CORDA_NODE/node.conf;
 sudo echo "
     [Unit]
     Description=Corda Node - $CORDA_NODE
