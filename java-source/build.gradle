@@ -116,42 +116,50 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=Notary,L=London,C=GB"
         notary = [validating : false]
         rpcSettings {
-            address("50.112.19.229:10008")
-            adminAddress("50.112.19.229:10048")
+            useSsl(false)
+            standAloneBroker(false)
+            address("50.112.19.229:10002")
+            adminAddress("50.112.19.229:10003")
         }
-        p2pPort 10006
+        p2pPort 10000
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
     }
-    node {
+    node {  
         name "O=London,L=London,C=GB"
-        p2pPort 10007
         rpcSettings {
-            address("18.237.44.123:10008")
-            adminAddress("18.237.44.123:10048")
+            useSsl(false)
+            standAloneBroker(false)
+            address("18.237.44.123:10002")
+            adminAddress("18.237.44.123:10003")
         }
-        webPort 10009
+        p2pPort 10000
+        webAddress "0.0.0.0:10004"
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
-    node {
+    node { 
         name "O=NewYork,L=New York,C=US"
-        p2pPort 10010
         rpcSettings {
-            address("34.217.122.211:10011")
-            adminAddress("34.217.122.211:10051")
+            useSsl(false)
+            standAloneBroker(false)
+            address("34.217.122.211:10002")
+            adminAddress("34.217.122.211:10003")
         }
-        webPort 10012
+        p2pPort 10000
+        webAddress "0.0.0.0:10004"
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
-    node {
+    node { 
         name "O=Paris,L=Paris,C=FR"
-        p2pPort 10013
         rpcSettings {
-            address("18.237.35.221:10014")
-            adminAddress("18.237.35.221:10054")
+            useSsl(false)
+            standAloneBroker(false)
+            address("18.237.35.221:10002")
+            adminAddress("18.237.35.221:10003")
         }
-        webPort 10015
+        p2pPort 10000
+        webAddress "0.0.0.0:10004"
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }

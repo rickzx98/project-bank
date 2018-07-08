@@ -15,26 +15,6 @@ sudo rm /opt/corda/node.conf;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
 sudo echo "
-basedir : \"$cordaHome\"
-p2pAddress : \"18.237.44.123:10002\"
-rpcAddress : \"18.237.44.123:10003\"
-webAddress : \"0.0.0.0:10004\"
-h2port : 11000
-emailAddress : \"jerico.g.de.guzman@accenture.com\"
-myLegalName : \"O=$CORDA_NODE, L=$CORDA_LOCATION, C=$CORDA_CURRENCY\"
-keyStorePassword : \"cordacadevpass\"
-trustStorePassword : \"trustpass\"
-devMode : false
-rpcUsers=[
-    {
-        user=corda  
-        password=portal_password
-        permissions=[
-            ALL
-        ]
-    }
-]" >> $cordaHome/node.conf;
-sudo echo "
     [Unit]
     Description=Corda Node - $CORDA_NODE
     Requires=network.target
