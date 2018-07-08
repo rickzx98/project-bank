@@ -17,8 +17,8 @@ sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
 sudo rm /opt/corda/node.conf;
-sudo echo "
 sudo ufw allow 10004
+sudo echo "
 basedir : \"$cordaHome\"
 p2pAddress : \"0.0.0.0:10000\"
 webAddress : \"0.0.0.0:10004\"
