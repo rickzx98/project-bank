@@ -30,6 +30,7 @@ keyStorePassword : \"cordacadevpass\"
 trustStorePassword : \"trustpass\"
 devMode : false
 rpcSettings {
+    useSsl=false
     address=\"0.0.0.0:10002\"
     adminAddress=\"0.0.0.0:10003\"
 }
