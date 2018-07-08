@@ -26,12 +26,12 @@ webAddress : \"0.0.0.0:10004\"
 h2port : 11000
 emailAddress : \"jerico.g.de.guzman@accenture.com\"
 myLegalName : \"O=$1,L=$2,C=$3\"
+keyStorePassword : \"cordacadevpass\"
+trustStorePassword : \"trustpass\"
 devMode : false
 rpcSettings {
     address=\"0.0.0.0:10002\"
     adminAddress=\"0.0.0.0:10003\"
-    standAloneBroker=false
-    useSsl=false
 }
 rpcUsers=[
     {

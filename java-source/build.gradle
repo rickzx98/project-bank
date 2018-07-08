@@ -121,8 +121,6 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     node {  
         name "O=London,L=London,C=GB"
         rpcSettings {
-            useSsl(false)
-            standAloneBroker(false)
             address("18.237.44.123:10002")
             adminAddress("18.237.44.123:10003")
         }
@@ -134,8 +132,6 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     node { 
         name "O=NewYork,L=New York,C=US"
         rpcSettings {
-            useSsl(false)
-            standAloneBroker(false)
             address("34.217.122.211:10002")
             adminAddress("34.217.122.211:10003")
         }
@@ -147,8 +143,6 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     node { 
         name "O=Paris,L=Paris,C=FR"
         rpcSettings {
-            useSsl(false)
-            standAloneBroker(false)
             address("18.237.35.221:10002")
             adminAddress("18.237.35.221:10003")
         }
