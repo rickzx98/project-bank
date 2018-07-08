@@ -62,7 +62,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=start.sh
+    ExecStart=$cordaHome/start.sh
     Restart=on-failure
 
     [Install]
@@ -79,7 +79,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=start-web.sh
+    ExecStart=$cordaHome/start-web.sh
     Restart=on-failure
 
     [Install]
