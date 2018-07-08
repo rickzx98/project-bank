@@ -22,18 +22,18 @@ webAddress : \"0.0.0.0:10004\"
 h2port : 11000
 emailAddress : \"jerico.g.de.guzman@accenture.com\"
 myLegalName : \"O=$CORDA_NODE, L=$CORDA_LOCATION, C=$CORDA_CURRENCY\"
-keyStorePassword : "cordacadevpass"
-trustStorePassword : "trustpass"
+keyStorePassword : \"cordacadevpass\"
+trustStorePassword : \"trustpass\"
 devMode : false
 rpcUsers=[
     {
-        user=corda
+        user=corda  
         password=portal_password
         permissions=[
             ALL
         ]
     }
-]" >> /opt/corda/node.conf;
+]" >> $cordaHome/node.conf;
 sudo echo "
     [Unit]
     Description=Corda Node - $CORDA_NODE
@@ -43,7 +43,7 @@ sudo echo "
     Type=simple
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
+    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar --config-file=$cordaHome/node.conf
     Restart=on-failure
 
     [Install]
@@ -58,7 +58,7 @@ sudo echo "
     [Service]
     Type=simple
     User=ubuntu
-    WorkingDirectory=/opt/corda
+    WorkingDirectory=$cordaHome
     ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
     Restart=on-failure
 
