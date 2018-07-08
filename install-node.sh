@@ -9,6 +9,7 @@ export CORDA_CURRENCY=$3;
 echo Setting up $CORDA_NODE;
 cordaHome=/opt/corda;
 mkdir $cordaHome;
+sudo chmod -R 777 $cordaHome;
 sudo rm /opt/corda/node.conf;
 sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
