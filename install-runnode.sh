@@ -32,7 +32,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/runnodes.jar
+    ExecStart=$cordaHome/runnodes
     Restart=on-failure
 
     [Install]
