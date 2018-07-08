@@ -115,7 +115,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     node {
         name "O=Notary,L=London,C=GB"
         notary = [validating : false]
-        p2pPort 10000
+        p2pAddress "50.112.19.229:10000"
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
@@ -127,7 +127,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
             address("18.237.44.123:10002")
             adminAddress("18.237.44.123:10003")
         }
-        p2pPort 10000
+        p2pAddress "18.237.44.123:10000"
         webPort 10004
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
@@ -140,7 +140,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
             address("34.217.122.211:10002")
             adminAddress("34.217.122.211:10003")
         }
-        p2pPort 10000
+        p2pAddress "34.217.122.211:10000"
         webPort 10004
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
@@ -153,7 +153,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
             address("18.237.35.221:10002")
             adminAddress("18.237.35.221:10003")
         }
-        p2pPort 10000
+        p2pAddress "18.237.35.221:10000"
         webPort 10004
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
