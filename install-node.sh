@@ -21,11 +21,11 @@ sudo rm $cordaHome/start.sh;
 sudo rm $cordaHome/start-web.sh;
 sudo echo "
     #!/bin/bash
-    sudo java -Xmx2048m -jar corda.jar
+    sudo java -Xmx2048m -jar $cordaHome/corda.jar
 " >> $cordaHome/start.sh
 sudo echo "
     #!/bin/bash
-    sudo java -jar corda-webserver.jar
+    sudo java -jar $cordaHome/corda-webserver.jar
 " >> $cordaHome/start-web.sh
 sudo echo "
 basedir : \"$cordaHome\"
