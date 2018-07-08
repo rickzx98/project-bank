@@ -18,9 +18,10 @@ sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
 sudo rm /opt/corda/node.conf;
 sudo echo "
+sudo ufw allow 10004
 basedir : \"$cordaHome\"
 p2pAddress : \"0.0.0.0:10000\"
-webAddress : \"0.0.0.0:80\"
+webAddress : \"0.0.0.0:10004\"
 h2port : 11000
 emailAddress : \"jerico.g.de.guzman@accenture.com\"
 myLegalName : \"O=$1, L=$2, C=$3\"
