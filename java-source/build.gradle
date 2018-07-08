@@ -117,6 +117,7 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         notary = [validating : false]
         p2pPort 10000
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
+        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
     node {  
         name "O=London,L=London,C=GB"
