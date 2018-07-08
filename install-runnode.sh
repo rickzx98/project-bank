@@ -21,7 +21,7 @@ sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/$CORDA_NODE/;
 sudo chmod -R 777 $cordaHome;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
-sudo rm $cordaHome/nodes/$CORDA_NODE/node.conf;
+sudo rm $cordaHome/$CORDA_NODE/node.conf;
 sudo ufw allow 10004
 sudo echo "
 basedir : \"$cordaHome\"
@@ -45,7 +45,7 @@ rpcUsers=[
             ALL
         ]
     }
-]" >> $cordaHome/nodes/$CORDA_NODE/node.conf;
+]" >> $cordaHome/$CORDA_NODE/node.conf;
 sudo echo "
     [Unit]
     Description=Corda Node - $CORDA_NODE
