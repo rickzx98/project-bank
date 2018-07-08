@@ -10,13 +10,33 @@ echo Setting up $CORDA_NODE;
 cordaHome=/opt/corda;
 mkdir $cordaHome;
 sudo chmod -R 777 $cordaHome;
-sudo rm /opt/corda/node.conf;
 sudo systemctl stop corda;
 sudo systemctl stop corda-webserver;
 sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
+sudo rm /opt/corda/node.conf;
+sudo echo "
+basedir : \"$cordaHome\"
+p2pAddress : \"0.0.0.0:10002\"
+rpcAddress : \"0.0.0.0:10003\"
+webAddress : \"0.0.0.0:10004\"
+h2port : 11000
+emailAddress : \"jerico.g.de.guzman@accenture.com\"
+myLegalName : \"O=$1, L=$2, C=$3\"
+keyStorePassword : \"cordacadevpass\"
+trustStorePassword : \"trustpass\"
+devMode : false
+rpcUsers=[
+    {
+        user=user1  
+        password=test
+        permissions=[
+            ALL
+        ]
+    }
+]" >> $cordaHome/node.conf;
 sudo echo "
     [Unit]
     Description=Corda Node - $CORDA_NODE
