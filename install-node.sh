@@ -19,8 +19,9 @@ sudo rm /etc/systemd/system/corda-webserver.service;
 sudo rm /opt/corda/node.conf;
 sudo echo "
 basedir : \"$cordaHome\"
-p2pAddress : \"0.0.0.0:10002\"
-rpcAddress : \"0.0.0.0:10003\"
+p2pAddress : \"0.0.0.0:10000\"
+rpcAddress : \"0.0.0.0:10002\"
+adminAddress : \"0.0.0.0:10003\"
 webAddress : \"0.0.0.0:10004\"
 h2port : 11000
 emailAddress : \"jerico.g.de.guzman@accenture.com\"
