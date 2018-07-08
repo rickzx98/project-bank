@@ -16,11 +16,21 @@ sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
-sudo rm /opt/corda/node.conf;
+sudo rm $cordaHome/node.conf;
+sudo rm $cordaHome/start.sh;
+sudo rm $cordaHome/start-web.sh;
+sudo echo "
+    #!/bin/bash
+    sudo java -Xmx2048m -jar corda.jar
+" >> $cordaHome/start.sh
+sudo echo "
+    #!/bin/bash
+    sudo java -jar corda-webserver.jar
+" >> $cordaHome/start-web.sh
 sudo echo "
 basedir : \"$cordaHome\"
 p2pAddress : \"0.0.0.0:10000\"
-webAddress : \"0.0.0.0:10004\"
+webAddress : \"0.0.0.0:80\"
 h2port : 11000
 emailAddress : \"jerico.g.de.guzman@accenture.com\"
 myLegalName : \"O=$1, L=$2, C=$3\"
@@ -52,7 +62,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
+    ExecStart=start.sh
     Restart=on-failure
 
     [Install]
@@ -69,7 +79,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
+    ExecStart=start-web.sh
     Restart=on-failure
 
     [Install]
