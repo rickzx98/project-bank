@@ -54,3 +54,4 @@ sudo chmod 644 /etc/systemd/system/corda-webserver.service;
 sudo systemctl daemon-reload;
 sudo systemctl enable --now corda;
 sudo systemctl enable --now corda-webserver;
+sudo systemctl start corda corda-webserver;
