@@ -151,10 +151,10 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         name "O=Paris,L=Paris,C=FR"
         rpcSettings {
             useSsl(false)
-            address("18.237.35.221:10002")
+            address("54.212.172.10:10002")
             adminAddress("0.0.0.0:10003")
         }
-        p2pAddress "18.237.35.221:10000"
+        p2pAddress "54.212.172.10:10000"
         webPort 10004
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
         rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
