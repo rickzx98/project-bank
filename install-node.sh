@@ -1,7 +1,7 @@
 #!/bin/bash
-export CORDA_NODE=London;
-export CORDA_LOCATION=London;
-export CORDA_CURRENCY=GB;
+export CORDA_NODE=$0;
+export CORDA_LOCATION=$1;
+export CORDA_CURRENCY=$2;
 #export CORDA_NOTARY_IP=54.190.42.1;
 #export CORDA_LONDON_IP=18.237.44.123;
 #export CORDA_NEW_YORK_IP=34.217.122.211;
