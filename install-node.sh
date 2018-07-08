@@ -24,7 +24,7 @@ p2pAddress : \"0.0.0.0:10000\"
 webAddress : \"0.0.0.0:10004\"
 h2port : 11000
 emailAddress : \"jerico.g.de.guzman@accenture.com\"
-myLegalName : \"O=$1, L=$2, C=$3\"
+myLegalName : \"O=$1,L=$2,C=$3\"
 devMode : false
 rpcSettings {
     address=\"0.0.0.0:10002\"
