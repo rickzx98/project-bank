@@ -11,6 +11,8 @@ cordaHome=/opt/corda;
 mkdir $cordaHome;
 sudo chmod -R 777 $cordaHome;
 sudo rm /opt/corda/node.conf;
+sudo systemctl stop corda;
+sudo systemctl stop corda-webserver;
 sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 sudo rm /etc/systemd/system/corda.service;
