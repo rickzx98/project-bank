@@ -16,17 +16,7 @@ sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
-sudo rm $cordaHome/node.conf;
-sudo rm $cordaHome/start.sh;
-sudo rm $cordaHome/start-web.sh;
-sudo echo "
-    #!/bin/bash
-    sudo java -Xmx2048m -jar $cordaHome/corda.jar
-" >> $cordaHome/start.sh
-sudo echo "
-    #!/bin/bash
-    sudo java -jar $cordaHome/corda-webserver.jar
-" >> $cordaHome/start-web.sh
+sudo rm /opt/corda/node.conf;
 sudo echo "
 basedir : \"$cordaHome\"
 p2pAddress : \"0.0.0.0:10000\"
@@ -62,7 +52,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=$cordaHome/start.sh
+    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
     Restart=on-failure
 
     [Install]
@@ -79,7 +69,7 @@ sudo echo "
     Group=root
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=$cordaHome/start-web.sh
+    ExecStart=/usr/bin/java -jar /opt/corda/corda-webserver.jar
     Restart=on-failure
 
     [Install]
