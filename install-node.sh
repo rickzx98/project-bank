@@ -9,9 +9,9 @@ export CORDA_CURRENCY=GB;
 echo Setting up $CORDA_NODE;
 cordaHome=/opt/corda;
 mkdir $cordaHome;
+sudo rm /opt/corda/node.conf;
 sudo sh gradlew deployNodesProd;
 sudo cp -R ./java-source/build/nodes/$CORDA_NODE/* $cordaHome/;
-sudo rm /opt/corda/node.conf;
 sudo rm /etc/systemd/system/corda.service;
 sudo rm /etc/systemd/system/corda-webserver.service;
 sudo echo "
@@ -23,7 +23,7 @@ sudo echo "
     Type=simple
     User=ubuntu
     WorkingDirectory=$cordaHome
-    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar --config-file=$cordaHome/node.conf
+    ExecStart=/usr/bin/java -Xmx2048m -jar $cordaHome/corda.jar
     Restart=on-failure
 
     [Install]

@@ -115,12 +115,6 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
     node {
         name "O=Notary,L=London,C=GB"
         notary = [validating : false]
-        rpcSettings {
-            useSsl(false)
-            standAloneBroker(false)
-            address("50.112.19.229:10002")
-            adminAddress("50.112.19.229:10003")
-        }
         p2pPort 10000
         cordapps = ["$corda_release_group:corda-finance:$corda_release_version"]
     }
@@ -129,8 +123,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcSettings {
             useSsl(false)
             standAloneBroker(false)
-            address("18.237.44.123:10002")
-            adminAddress("18.237.44.123:10003")
+            address("50.112.19.229:10002")
+            adminAddress("50.112.19.229:10003")
         }
         p2pPort 10000
         webAddress "0.0.0.0:10004"
@@ -142,8 +136,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcSettings {
             useSsl(false)
             standAloneBroker(false)
-            address("34.217.122.211:10002")
-            adminAddress("34.217.122.211:10003")
+            address("50.112.19.229:10002")
+            adminAddress("50.112.19.229:10003")
         }
         p2pPort 10000
         webAddress "0.0.0.0:10004"
@@ -155,8 +149,8 @@ task deployNodesProd(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcSettings {
             useSsl(false)
             standAloneBroker(false)
-            address("18.237.35.221:10002")
-            adminAddress("18.237.35.221:10003")
+            address("50.112.19.229:10002")
+            adminAddress("50.112.19.229:10003")
         }
         p2pPort 10000
         webAddress "0.0.0.0:10004"
